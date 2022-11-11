@@ -52,16 +52,16 @@
                     <div class="col col-md-6 col-sm-7 col-12">
                         <div class="contact-intro">
                             <ul>
-                                <li><i class="fi flaticon-call"></i>+000123456789</li>
-                                <li><i class="fi flaticon-envelope"></i> nasarna@gmail.com</li>
+                                <li><i class="fi flaticon-call"></i>Phone Number</li>
+                                <li><i class="fi flaticon-envelope"></i> info@zecaf.org.ng</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col col-md-6 col-sm-5 col-12">
                         <div class="contact-info">
                             <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Sign Up</a></li>
+                                {{--<li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Sign Up</a></li>--}}
                                 <li><a class="theme-btn" href="donate.html">Donate Now</a></li>
                             </ul>
                         </div>
