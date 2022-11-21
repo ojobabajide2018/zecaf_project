@@ -15,7 +15,16 @@
                 <li class="menu-item-has-children">
                     <a href="#">Home</a>
                 </li>
-                <li><a href="about.html">Who We Are</a></li>
+                <li class="menu-item-has-children">
+                    <a href="#">Who We Are</a>
+                    <ul class="sub-menu">
+                        <li><a href="{{route('about-us')}}">About Us</a></li>
+                        <li><a href="{{route('about-us')}}">Governing Body</a></li>
+                        <li><a href="{{route('about-us')}}">Trustees</a></li>
+                        <li><a href="index-3.html">Members</a></li>
+                        <li><a href="index-3.html">Sub-Committees</a></li>
+                    </ul>
+                </li>
                 <li class="menu-item-has-children">
                     <a href="#">Projects</a>
                     <ul class="sub-menu">

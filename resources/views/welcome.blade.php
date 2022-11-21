@@ -417,45 +417,28 @@
                 </div>
             </div>
             <div class="row">
+                @forelse($posts as $post)
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
                     <div class="wpo-blog-item">
                         <div class="wpo-blog-img">
-                            <img src="assets/images/blog/img-1.jpg" alt="">
+                            <img src="images/{{$post->blog_image}}" alt="">
                         </div>
                         <div class="wpo-blog-content">
-                            <span>Oct 31, 2020</span>
-                            <h2>Donation is hope for poor children</h2> <br>
-                            <p class="par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi ea eligendi eos et id iusto, nam odit omnis pariatur placeat praesentium quasi quod...</p>
-                            <a href="" class="par-button">Read More</a>
+                            <span>{{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMM Do YYYY')}}</span>
+                            <h2>{{$post->blog_title}}</h2> <br>
+                            <p class="par">{{ Str::limit($post->blog_paragraph, 85) }}</p>
+                            <form action="{{route('blog-single')}}">
+                                <input type="hidden" name="id" value="{{$post->id}}">
+                                <button type="submit">Read More</button>
+
+
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                    <div class="wpo-blog-item">
-                        <div class="wpo-blog-img">
-                            <img src="assets/images/blog/img-2.jpg" alt="">
-                        </div>
-                        <div class="wpo-blog-content">
-                            <span>Oct 31, 2020</span>
-                            <h2>Donation is hope for poor children</h2> <br>
-                            <p class="par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi ea eligendi eos et id iusto, nam odit omnis pariatur placeat praesentium quasi quod...</p>
-                            <a href="" class="par-button">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                    <div class="wpo-blog-item">
-                        <div class="wpo-blog-img">
-                            <img src="assets/images/blog/img-3.jpg" alt="">
-                        </div>
-                        <div class="wpo-blog-content">
-                            <span>Oct 31, 2020</span>
-                            <h2>Donation is hope for poor children</h2> <br>
-                            <p class="par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi ea eligendi eos et id iusto, nam odit omnis pariatur placeat praesentium quasi quod...</p>
-                            <a href="" class="par-button">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                <p>Post is empty</p>
+                @endforelse
             </div>
         </div>
     </div>
@@ -604,15 +587,16 @@
                 </div>
             </div>
             <div class="row">
+                @forelse($governing_bodies as $governing_body)
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
                     <div class="wpo-team-wrap">
                         <div class="wpo-team-img">
-                            <img src="assets/images/governing-body/img1.png" alt="">
+                            <img src="images/{{$governing_body->image}}" alt="">
                         </div>
                         <div class="wpo-team-content">
                             <div class="wpo-team-text-sub">
-                                <h2>His Royal Highness, Amb. Mal. Ahmed Nuhu Bamalli, CFR (Emir of Zazzau)</h2>
-                                <span>Chairman</span>
+                                <h2>{{$governing_body->name}}</h2>
+                                <span>{{$governing_body->position}}</span>
                               {{--  <ul>
                                     <li><a href="#"><i class="ti-facebook"></i></a></li>
                                     <li><a href="#"><i class="ti-twitter"></i></a></li>
@@ -623,44 +607,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                    <div class="wpo-team-wrap">
-                        <div class="wpo-team-img">
-                            <img src="assets/images/governing-body/img2.png" alt="">
-                        </div>
-                        <div class="wpo-team-content">
-                            <div class="wpo-team-text-sub">
-                                <h2>Nuhu Aminu Bamalli, Jarman Kudun Zazzau</h2>
-                                <span>Secretary</span>
-                                {{--<ul>
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ti-google"></i></a></li>
-                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                </ul>--}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                    <div class="wpo-team-wrap">
-                        <div class="wpo-team-img">
-                            <img src="assets/images/team/team-3.jpg" alt="">
-                        </div>
-                        <div class="wpo-team-content">
-                            <div class="wpo-team-text-sub">
-                                <h2>Juliya Jossoy</h2>
-                                <span>Volunteer</span>
-                                <ul>
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ti-google"></i></a></li>
-                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                <p>No Governing Body</p>
+                @endforelse
             </div>
         </div>
     </div>
